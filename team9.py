@@ -12,12 +12,7 @@ team_name = 'champs' # Only 10 chars displayed.
 strategy_name = 'return oppontents last move if no c' 
 strategy_description = 'How does this strategy decide?'
 
-def percent( move, percantage):
-    
-    if random.random()< percantage:
-        return move
-    else:
-        return 'c'
+
     
 
 def move(my_history, their_history, my_score, their_score):
@@ -38,10 +33,14 @@ def move(my_history, their_history, my_score, their_score):
 
   
  
-    if 'bb' in their_history[-2:]:
-        return 'b'
+    
+    if len(my_history)<2:
+        return 'c'
     else:
-        return their_history[-1:]
+        if 'bb' in their_history[-2:]:
+            return 'b'
+        else:
+            return their_history[-1:]
     
         
            
